@@ -62,7 +62,7 @@ class Publisher(models.Model):
     # How to access a reverse relationship on a foreign key:  publisher.publication_set.all()
     publisher = models.CharField(max_length=150, primary_key=True, unique=True)
     account_number = models.CharField(max_length=50, null=True, blank=True)
-    location = models.ForeignKey(Location, default= 'ATL')
+    location = models.ForeignKey(Location, default=1)
 
     def __unicode__(self):
         return self.publisher
@@ -81,7 +81,7 @@ class Publication(models.Model):
     publication_title = models.CharField(max_length=200, null=True, blank=True)
     publication_number = models.CharField(max_length=50, null=True, blank=True)
     publication_type = models.CharField(max_length=2, choices=SUBSCRIPTION_CHOICES, default=SUBSCRIPTION)
-    location = models.ForeignKey(Location)
+    location = models.ForeignKey(Location, default=1)
     price = models.FloatField()
 
     def __unicode__(self):
