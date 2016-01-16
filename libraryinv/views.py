@@ -61,3 +61,35 @@ def add_publisher(request):
     else:
         form = PublisherForm()
     return render_to_response('libraryinv/add_publisher.html', {'form': form}, context)
+
+
+def add_line(request):
+    context = RequestContext(request)
+
+    if request.method == 'POST':
+        form = LineForm(request.POST)
+
+        if form.is_valid():
+            form.save(commit=True)
+            return index(request)
+        else:
+            print form.errors
+    else:
+        form = LineForm()
+    return render_to_response('libraryinv/add_line.html', {'form': form}, context)
+
+
+def add_invoice(request):
+    context = RequestContext(request)
+
+    if request.method == 'POST':
+        form = InvoiceForm(request.POST)
+
+        if form.is_valid():
+            form.save(commit=True)
+            return index(request)
+        else:
+            print form.errors
+    else:
+        form = InvoiceForm()
+    return render_to_response('libraryinv/add_invoice.html', {'form': form}, context)

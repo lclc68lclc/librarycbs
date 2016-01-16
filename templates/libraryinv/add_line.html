@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+{% extends 'libraryinv/base.html' %}
+
+{% load staticfiles %}
+
+{% block title %}Add a Line{% endblock %}
+{% block body_block %}
+
+    <link href="{% static 'css/readable.css' %}" rel="stylesheet">
+    <div class="hero-unit">
+        <div class="jumbotron" align="center">
+            <h1><strong>Add a Line</strong></h1>
+        <div class="panel panel-primary">
+        <form class="form-horizontal" method="post" action="">
+                {{ formset.management_form }}
+                {% for form in formset %}
+                    {% for field in form %}
+                        {{ field.label_tag }} {{ field }}
+                    {% endfor %}
+                {% endfor %}
+        </form>
+        <form class="form-horizontal" form id="line" method="post" action="">
+            <div class="form-group" align="center">
+                {% csrf_token %}
+                {% for hidden in form.hidden_fields %}
+                    {{ hidden }}
+                {% endfor %}
+
+
+                {% for field in form.visible_fields %}
+                    {{ field.errors }}
+                    {{ field.help_text }}<br/>
+                    {{ field }}<br/>
+                {% endfor %}
+
+                <br/>
+            <input type="submit" name="submit" value="Submit" />
+            </div>
+        </form>
+        </div>
+        </div>
+    </div>
+{% endblock %}
+</html>

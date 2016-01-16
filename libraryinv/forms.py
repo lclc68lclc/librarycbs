@@ -34,3 +34,31 @@ class PublisherForm(forms.ModelForm):
             'publication_type': _('Type of Publication'),
             'Location': _('Location'),
         }
+
+
+class LineForm(forms.ModelForm):
+    class Meta:
+        model = Line
+
+        help_texts = {
+            'title': _('Title of the Publication'),
+            'price': _('Price'),
+            'version': _('Publication Version'),
+            'quantity': _('Quantity'),
+            }
+
+
+class InvoiceForm(forms.ModelForm):
+    class Meta:
+        model = Invoice
+
+        help_texts = {
+            'invoice_number': _('Invoice Number'),
+            'price': _('Price'),
+            'tax': _('Tax'),
+            'shipping': _('Shipping'),
+            'total': _('Total'),
+            'date_purchased': _('Date Purchased'),
+            'order_type': _('Type of Order (Standing, New, Canceled'),
+            'date_sent_acctg': _('Date Sent to Accounting'),
+            }
