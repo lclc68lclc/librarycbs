@@ -60,8 +60,8 @@ class Location(models.Model):
 
 class Publisher(models.Model):
     # How to access a reverse relationship on a foreign key:  publisher.publication_set.all()
-    publisher = models.CharField(max_length=150, primary_key=True, unique=True)
-    account_number = models.CharField(max_length=50, null=True, blank=True)
+    publisher = models.CharField(max_length=150)
+    account_number = models.CharField(primary_key=True, unique=True,max_length=50)
     location = models.ForeignKey(Location, default=1)
 
     def __unicode__(self):
@@ -79,13 +79,14 @@ class Publication(models.Model):
 
     # How to access a foreign key:  publication.publisher
     publication_title = models.CharField(max_length=200, null=True, blank=True)
+    publisher_match = models.ForeignKey(Publisher)
     publication_number = models.CharField(max_length=50, null=True, blank=True)
     publication_type = models.CharField(max_length=2, choices=SUBSCRIPTION_CHOICES, default=SUBSCRIPTION)
     location = models.ForeignKey(Location, default=1)
-    price = models.FloatField()
 
     def __unicode__(self):
         return self.publication_title
+
 
 class Line(models.Model):
     title = models.ForeignKey(Publication)
@@ -99,7 +100,8 @@ class Line(models.Model):
 
 class Invoice(models.Model):
     invoice_number = models.CharField(max_length=150)
-    price = models.ForeignKey(Line)
+    publication_match = models.ForeignKey(Line)
+    price = models.ForeignKey(Line,null=True,related_name="price_match")
     tax = models.FloatField()
     shipping = models.FloatField()
     total = models.FloatField()
@@ -109,7 +111,6 @@ class Invoice(models.Model):
 
     def __unicode__(self):
         return self.invoice_number
-
 
 
 # One way of organizing:

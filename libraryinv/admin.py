@@ -8,9 +8,11 @@ class PublisherResource(resources.ModelResource):
 
     class Meta:
         model = Publisher
+        import_id_fields = ('account_number',)
 
 
 class PublisherAdmin(ImportExportModelAdmin):
+
     resource_class = PublisherResource
     pass
 
@@ -22,6 +24,7 @@ class PublicationResource(resources.ModelResource):
 
 
 class PublicationAdmin(ImportExportModelAdmin):
+
     resource_class = PublicationResource
     pass
 

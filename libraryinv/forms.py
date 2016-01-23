@@ -16,6 +16,7 @@ class PublicationForm(forms.ModelForm):
         help_texts = {
             'publication_number': _('Publication Number'),
             'publication_title': _('Title of the Publication'),
+            'publisher_match': _('Publisher'),
             'publication_type': _('Type of Publication'),
             'location': _('Location'),
             'price': _('Price'),
@@ -28,10 +29,6 @@ class PublisherForm(forms.ModelForm):
         help_texts = {
             'publisher': _('Publisher Name'),
             'account_number': _('Account Number'),
-            'publication_number': _('Publication Number (ex. ISBN or reference number'),
-            'publication_title': _('Name of Publication'),
-            'version': _('Version'),
-            'publication_type': _('Type of Publication'),
             'Location': _('Location'),
         }
 
@@ -54,11 +51,12 @@ class InvoiceForm(forms.ModelForm):
 
         help_texts = {
             'invoice_number': _('Invoice Number'),
+            'publication_match': _('Publication'),
             'price': _('Price'),
             'tax': _('Tax'),
             'shipping': _('Shipping'),
             'total': _('Total'),
             'date_purchased': _('Date Purchased'),
-            'order_type': _('Type of Order (Standing, New, Canceled'),
+            'order_type': _('Type of Order (Standing, New, Canceled)'),
             'date_sent_acctg': _('Date Sent to Accounting'),
             }
