@@ -44,5 +44,5 @@ pyOpenSSL==0.15.1
 pytz==2015.4
 six==1.10.0
 South==1.0.2
-tablib==0.10.0
+tablib==0.11.5
 tzlocal==1.2
