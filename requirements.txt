@@ -40,7 +40,7 @@ Pillow==2.8.1
 psycopg2==2.6.1
 pyasn1==0.1.9
 pycparser==2.14
-pyOpenSSL==0.15.1
+pyOpenSSL==17.5.0
 pytz==2015.4
 six==1.10.0
 South==1.0.2
