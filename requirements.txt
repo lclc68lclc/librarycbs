@@ -31,7 +31,7 @@ djangocms-teaser==0.1
 djangocms-text-ckeditor==2.6.0
 djangocms-video==0.1
 enum34==1.1.2
-gunicorn==19.4.1
+gunicorn==19.5.0
 html5lib==0.999999
 idna==2.0
 ipaddress==1.0.16
